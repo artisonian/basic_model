@@ -1,6 +1,6 @@
 = BasicModel
 
-* http://github.com/topfunky/basic_model (url)
+* http://github.com/artisonian/basic_model (url)
 
 == DESCRIPTION:
 
@@ -8,7 +8,7 @@ A very thin wrapper around CouchRest, for use with CouchDB.
 
 == FEATURES/PROBLEMS:
 
-* Usable with Rails in place of ActiveRecord (for forms and URLs)
+* Usable with Sinatra.
 
 == SYNOPSIS:
 

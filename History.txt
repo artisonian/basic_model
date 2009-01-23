@@ -1,3 +1,7 @@
+=== 0.1.1 / 2009-01-23
+
+* Modified to use with Sinatra
+
 === 0.1.0 / 2008-09-13
 
 * First release

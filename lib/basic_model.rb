@@ -5,7 +5,7 @@ require 'duck_punches/date_time'
 require 'duck_punches/date'
 
 ##
-# A minimal class to help use CouchDB and CouchRest with Rails.
+# A minimal class to help use CouchDB and CouchRest with Sinatra.
 #
 # Provides dot notation access for all attributes, one level deep.
 #
@@ -32,7 +32,7 @@ require 'duck_punches/date'
 #   on_update()          # Called just before a model is written to the DB.
 
 class BasicModel
-  VERSION = '0.1.0'
+  VERSION = '0.1.1'
 
   attr_accessor :attributes
 
@@ -42,11 +42,11 @@ class BasicModel
       full_url_to_database = "http://localhost:5984/#{database_name}"
     end
     database = CouchRest.database!(full_url_to_database)
-    if Rails.env == 'development'
-      # Synchronize views in development.
-      # Assumes existence of "couchdb_views" directory.
+    if options.syncviews
+      # Synchronize views.
+      # Assumes existence of configure block with syncviews variable set.
       file_manager = CouchRest::FileManager.new(File.basename(full_url_to_database))
-      file_manager.push_views(File.join(Rails.root, "couchdb_views"))
+      file_manager.push_views(File.join(File.dirname(__file__), '..', '..', "couchdb_views"))
     end
     database
   end
