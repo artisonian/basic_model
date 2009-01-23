@@ -42,13 +42,13 @@ class BasicModel
       full_url_to_database = "http://localhost:5984/#{database_name}"
     end
     database = CouchRest.database!(full_url_to_database)
-    if options.syncviews
-      # Synchronize views.
-      # Assumes existence of configure block with syncviews variable set.
-      file_manager = CouchRest::FileManager.new(File.basename(full_url_to_database))
-      file_manager.push_views(File.join(File.dirname(__file__), '..', '..', "couchdb_views"))
-    end
     database
+  end
+  
+  # Sync views from couchdb_views directory
+  def self.syncviews(database_name)
+    file_manager = CouchRest::FileManager.new(File.basename(self.db(database_name)))
+    file_manager.push_views(File.join(File.dirname(__file__), '..', '..', "couchdb_views"))
   end
 
   def db
