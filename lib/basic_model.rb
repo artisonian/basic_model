@@ -155,7 +155,7 @@ class BasicModel
 
   def handle_attachments
     # Save an attachment
-    if @attributes['attachment'].is_a?(ActionController::UploadedTempfile)
+    if @attributes['attachment']
       attachment = @attributes.delete("attachment")
       @attributes["_attachments"] ||= {}
       filename = File.basename(attachment.original_filename)
