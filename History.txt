@@ -1,3 +1,7 @@
+=== 0.1.2 / 2009-01-23
+
+* Removed gemspec files
+
 === 0.1.1 / 2009-01-23
 
 * Modified to use with Sinatra

@@ -46,10 +46,10 @@ class BasicModel
   end
   
   # Sync views from couchdb_views directory
-  def self.syncviews(database_name)
-    file_manager = CouchRest::FileManager.new(File.basename(self.db(database_name)))
-    file_manager.push_views(File.join(File.dirname(__file__), '..', '..', "couchdb_views"))
-  end
+  # def self.syncviews(database_name)
+  #   file_manager = CouchRest::FileManager.new(File.basename(self.db(database_name)))
+  #   file_manager.push_views(File.join(File.dirname(__file__), '..', '..', "couchdb_views"))
+  # end
 
   def db
     self.class.db(@database_name)
