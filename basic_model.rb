@@ -115,6 +115,15 @@ class BasicModel
     self._rev = result['rev']
     self
   end
+  
+  
+  ##
+  # Deletes the document from the database
+  
+  def destroy
+    doc = {'_id' => self.id, '_rev' => self._rev }
+    self.class.db(@database_name).delete(doc)
+  end
 
   ##
   # Returns the ID so Rails can use it for forms.
